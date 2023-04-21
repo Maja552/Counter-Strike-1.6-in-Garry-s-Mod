@@ -1,0 +1,12 @@
+"cstrike"
+{
+	"base"		"base"
+	"title"		"Counter-Strike 1.6"
+	"maps"		"^de_|^cs_|^cs16_"
+	"menusystem"	"1"
+	
+	"settings"
+	{
+		
+	}
+}
