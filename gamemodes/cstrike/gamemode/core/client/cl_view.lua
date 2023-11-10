@@ -29,7 +29,7 @@ function meta_player:CalcBob()
     return bob
 end
 
-CS16_FOV = 74
+CS16_FOV = 80
 
 function GM:CalcView(ply, pos, ang, fov)
     if !GM_INITIALIZED then return false end

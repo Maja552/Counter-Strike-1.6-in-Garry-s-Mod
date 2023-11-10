@@ -210,7 +210,7 @@ function SWEP:Swing(first)
 		local info = DamageInfo()
 		info:SetAttacker(self.Owner)
 		info:SetInflictor(self)
-		info:SetDamage(15)
+		info:SetDamage(25)
 		info:SetDamageType(bit.bor(DMG_BULLET , DMG_NEVERGIB))
 
 		info:SetDamagePosition(tr.HitPos)

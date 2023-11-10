@@ -107,4 +107,36 @@ function GetCS16Sound(name)
     if istable(input) then return input[math.random(#input)] end
 end
 
+SUBGAMEMODE.CONFIG.WinConditions = {
+    [TEAM_T] = {
+        on_win_cl = function()
+            print("zombies have won the round!")
+            surface.PlaySound(GetCS16Sound("WIN_ZOMBIE"))
+        end
+    },
+    [TEAM_CT] = {
+        on_win_cl = function()
+            print("humans have won the round!")
+            surface.PlaySound(GetCS16Sound("WIN_HUMAN"))
+        end
+    },
+    [WIN_TIME] = {
+        on_win_cl = function()
+            --print("no one won")
+            print("humans have survived the round!")
+            surface.PlaySound(GetCS16Sound("WIN_NO_ONE"))
+        end
+    },
+    [WIN_DRAW] = {
+        on_win_cl = function()
+            print("round draw")
+            surface.PlaySound('cstrike/radio/rounddraw.wav')
+        end
+    },
+}
+
+if SERVER then
+	include("sv_config_wins.lua")
+end
+
 print("Gamemode loaded gamemodes/zombie_plague/shared.lua")

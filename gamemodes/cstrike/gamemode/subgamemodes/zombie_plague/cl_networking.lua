@@ -4,7 +4,7 @@ net.Receive("cs16_zm_roundstart", function(len)
     --CS16_ZM_ROUNDTYPES[CS16_ZM_CurrentRoundType]["cl_post_round_start"]()
 
     RunConsoleCommand("gsrchud_theme", "Counter-Strike")
-    RunConsoleCommand("fov", "100")
+    RunConsoleCommand("fov", "74")
 
     --surface.PlaySound(round_start_sounds[math.random(#round_start_sounds)])
     system.FlashWindow()
@@ -24,7 +24,7 @@ net.Receive("cs16_zm_prepstart", function(len)
     end
 
     RunConsoleCommand("gsrchud_theme", "Counter-Strike")
-    RunConsoleCommand("fov", "100")
+    RunConsoleCommand("fov", "74")
 end)
 
 net.Receive("cs16_gotinfected", function(len)
