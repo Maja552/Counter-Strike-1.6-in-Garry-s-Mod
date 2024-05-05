@@ -31,10 +31,46 @@ function GM:DEFAULT_PlayerDeathThink(ply)
 	end
 end
 
+function GM:DEFAULT_MakePlayerRagdoll(ply)
+	local corpse_velocity_multiplier = 1.5
+
+	if(IsValid(ply:GetRagdollEntity())) then
+		ply:GetRagdollEntity():Remove()
+	end
+
+	local rag = ents.Create("prop_ragdoll")
+	rag:SetPos(ply:GetPos())
+	rag:SetModel(ply:GetModel())
+	rag:SetAngles(ply:GetAngles())
+	rag:Spawn()
+	rag:Activate()
+	rag:SetCollisionGroup(COLLISION_GROUP_DEBRIS_TRIGGER)
+	timer.Simple(1, function() if IsValid(rag) then rag:CollisionRulesChanged() end end)
+	
+	local num = rag:GetPhysicsObjectCount() - 1
+	local v = ply:GetVelocity() * 0.35
+	
+	for i=0, num do
+		local bone = rag:GetPhysicsObjectNum(i)
+		if IsValid(bone) then
+			local bp, ba = ply:GetBonePosition(rag:TranslatePhysBoneToBone(i))
+			if bp and ba then
+				bone:SetPos(bp)
+				bone:SetAngles(ba)
+			end
+			bone:SetVelocity(v * corpse_velocity_multiplier)
+		end
+	end
+
+	return rag
+end
+
 function GM:DEFAULT_PostPlayerDeath(ply)
+	local rag = SUBGAMEMODE:MakePlayerRagdoll(ply)
+	SUBGAMEMODE:DoCorpseDeathSound(ply, rag)
+
     ply:SetTeam(TEAM_UNASSIGNED)
 	ply:Spawn()
-	--ply:SetPos(ply.corpse:GetPos())
 end
 
 function GM:DEFAULT_PlayerDeath(ply, inflictor, attacker)

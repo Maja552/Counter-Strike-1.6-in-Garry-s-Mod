@@ -1,5 +1,5 @@
 
-CS16_DefaultGamemode = "zombie_plague"
+CS16_DefaultGamemode = "paintball"
 
 CS16_Gamemodes = {
     -- This subgamemode contains the default config and functions for other subgamemodes

@@ -37,7 +37,7 @@ SWEP.Primary.Sound			= Sound("OldPB.Shot1")
 SWEP.Primary.EmptySound		= Sound("OldPistol.DryFire")
 SWEP.Primary.ClipSize		= CS16_GLOCK18_MAX_CLIP
 SWEP.Primary.DefaultClip	= CS16_GLOCK18_MAX_CLIP
-SWEP.Primary.Ammo			= "CS16_9MM"
+SWEP.Primary.Ammo			= "CS16_PBAMMO"
 
 SWEP.AnimPrefix 			= "pistol"
 SWEP.MaxSpeed 				= CS16_GLOCK18_MAX_SPEED
@@ -175,7 +175,7 @@ function SWEP:GLOCK18Fire(flSpread, flCycleTime)
 
 	self.Owner:SetAnimation(PLAYER_ATTACK1)
 	
-	self.Owner:FireBullets3(self, self.Owner:GetShootPos(), self.Owner:EyeAngles() + self.Owner:CS16_GetViewPunch(), flSpread, CS16_GLOCK18_DISTANCE, CS16_GLOCK18_PENETRATION, "CS16_9MM", CS16_GLOCK18_DAMAGE, CS16_GLOCK18_RANGE_MODIFER, self.Owner, true, self.Owner:EntIndex())
+	self.Owner:FireBullets3(self, self.Owner:GetShootPos(), self.Owner:EyeAngles() + self.Owner:CS16_GetViewPunch(), flSpread, CS16_GLOCK18_DISTANCE, CS16_GLOCK18_PENETRATION, "CS16_PBAMMO", CS16_GLOCK18_DAMAGE, CS16_GLOCK18_RANGE_MODIFER, self.Owner, true, self.Owner:EntIndex())
 
 	self:EmitSound(self.Primary.Sound)
 
@@ -204,7 +204,7 @@ function SWEP:FireRemaining()
 		return
 	end
 
-	self.Owner:FireBullets3(self, self.Owner:GetShootPos(), self.Owner:EyeAngles() + self.Owner:CS16_GetViewPunch(), 0.05, 8192, 1, "CS16_9MM", 18, 0.9, self.Owner, true, self.Owner:EntIndex())
+	self.Owner:FireBullets3(self, self.Owner:GetShootPos(), self.Owner:EyeAngles() + self.Owner:CS16_GetViewPunch(), 0.05, 8192, 1, "CS16_PBAMMO", 18, 0.9, self.Owner, true, self.Owner:EntIndex())
 
 	if SERVER then
 		self:NetworkedShootSound()

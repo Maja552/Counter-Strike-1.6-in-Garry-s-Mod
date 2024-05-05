@@ -33,7 +33,7 @@ SWEP.Primary.Sound			= Sound("OldPB.Shot1")
 SWEP.Primary.EmptySound		= Sound("OldRifle.DryFire")
 SWEP.Primary.ClipSize		= CS16_TMP_MAX_CLIP
 SWEP.Primary.DefaultClip	= CS16_TMP_MAX_CLIP
-SWEP.Primary.Ammo			= "CS16_9MM"
+SWEP.Primary.Ammo			= "CS16_PBAMMO"
 SWEP.Primary.Automatic		= true
 
 SWEP.AnimPrefix 			= "pistol"
@@ -90,7 +90,7 @@ function SWEP:TMPFire(flSpread, flCycleTime)
 
 	self.Owner:SetAnimation(PLAYER_ATTACK1)
 
-	self.Owner:FireBullets3(self, self.Owner:GetShootPos(), self.Owner:EyeAngles() + self.Owner:CS16_GetViewPunch(CLIENT), flSpread, CS16_TMP_DISTANCE, CS16_TMP_PENETRATION, "CS16_9MM", CS16_TMP_DAMAGE, CS16_TMP_RANGE_MODIFER, self.Owner, true, self.Owner:EntIndex())
+	self.Owner:FireBullets3(self, self.Owner:GetShootPos(), self.Owner:EyeAngles() + self.Owner:CS16_GetViewPunch(CLIENT), flSpread, CS16_TMP_DISTANCE, CS16_TMP_PENETRATION, "CS16_PBAMMO", CS16_TMP_DAMAGE, CS16_TMP_RANGE_MODIFER, self.Owner, true, self.Owner:EntIndex())
 
 	self:EmitSound(self.Primary.Sound)
 

@@ -15,6 +15,11 @@ function SUBGAMEMODE:OnPlayerInitialSpawn(ply)
     return GAMEMODE:DEFAULT_OnPlayerInitialSpawn(ply)
 end
 
+-- Player set human (basically spawns and resets the player)
+function SUBGAMEMODE:PlayerSetHuman(ply)
+    return GAMEMODE:DEFAULT_PlayerSetHuman(ply)
+end
+
 function SUBGAMEMODE:PlayerSpawn(ply)
 	if ply:IsSpectator() then return end
 	if ply:Team() == TEAM_UNASSIGNED then

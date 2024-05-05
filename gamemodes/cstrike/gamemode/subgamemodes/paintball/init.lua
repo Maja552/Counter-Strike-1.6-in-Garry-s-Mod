@@ -4,7 +4,8 @@ SUBGAMEMODE.CONFIG = {}
 
 AddCSLuaFile("shared.lua")
 include("shared.lua")
-
+include("sv_player.lua")
+include("sv_round.lua")
 
 function SUBGAMEMODE:CanPlayerSuicide(ply)
     return GAMEMODE:DEFAULT_CanPlayerSuicide(ply)
@@ -57,11 +58,6 @@ end
 -- Happens just before the end of the postround start
 function SUBGAMEMODE:Post_PostRoundStart(win_id, win_reason)
     GAMEMODE:DEFAULT_Post_PostRoundStart(win_id, win_reason)
-end
-
--- Happens just before the end of the preparing start
-function SUBGAMEMODE:Post_Preparing()
-    GAMEMODE:DEFAULT_Post_Preparing()
 end
 
 -- Happens just before the end of the round start
@@ -118,6 +114,11 @@ function SUBGAMEMODE:DoCorpseDeathSound(ply, corpse)
     return GAMEMODE:DEFAULT_DoCorpseDeathSound(ply, corpse)
 end
 
+-- Make the player corpse
+function SUBGAMEMODE:MakePlayerRagdoll(ply)
+    return GAMEMODE:DEFAULT_MakePlayerRagdoll(ply)
+end
+
 -- The death sound
 function SUBGAMEMODE:PlayerDeathSound(ply)
     return GAMEMODE:DEFAULT_PlayerDeathSound(ply)
@@ -148,4 +149,4 @@ function SUBGAMEMODE:DropCurrentWeapon(ply)
     return GAMEMODE:DEFAULT_DropCurrentWeapon(ply)
 end
 
-print("Gamemode loaded gamemodes/hide_and_seek/init.lua")
+print("Gamemode loaded gamemodes/paintball/init.lua")

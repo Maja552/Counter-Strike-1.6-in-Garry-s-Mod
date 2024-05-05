@@ -94,7 +94,7 @@ function SUBGAMEMODE:Post_Preparing()
     for k,v in pairs(all_plys) do
         v:SetTeam(v:CS16Team())
 
-        local team_assign_func = GAMEMODE.DEFAULT_CONFIG.ASSIGN_TEAMS[v:Team()]
+        local team_assign_func = GAMEMODE.CONFIG.ASSIGN_TEAMS[v:Team()]
         if team_assign_func then
             team_assign_func(v)
         end
@@ -194,9 +194,14 @@ function SUBGAMEMODE:PlayerDeathThink(ply)
     GAMEMODE:DEFAULT_PlayerDeathThink(ply)
 end
 
--- The corpse death sound, better position
+-- The corpse death sound
 function SUBGAMEMODE:DoCorpseDeathSound(ply, corpse)
     return GAMEMODE:DEFAULT_DoCorpseDeathSound(ply, corpse)
+end
+
+-- Make the player corpse
+function SUBGAMEMODE:MakePlayerRagdoll(ply)
+    return GAMEMODE:DEFAULT_MakePlayerRagdoll(ply)
 end
 
 -- The death sound
@@ -213,6 +218,16 @@ end
 -- Player spawns
 function SUBGAMEMODE:PlayerSpawn(ply)
     return GAMEMODE:DEFAULT_PlayerSpawn(ply)
+end
+
+-- Player set human (basically spawns and resets the player)
+function SUBGAMEMODE:PlayerSetHuman(ply)
+    return GAMEMODE:DEFAULT_PlayerSetHuman(ply)
+end
+
+-- Player loadout
+function SUBGAMEMODE:PlayerLoadout(ply)
+    return GAMEMODE:DEFAULT_PlayerLoadout(ply)
 end
 
 -- Player wants to join a team

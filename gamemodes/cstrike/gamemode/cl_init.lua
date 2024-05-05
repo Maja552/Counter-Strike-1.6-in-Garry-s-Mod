@@ -30,7 +30,6 @@ include("core/client/cl_menu_buy.lua")
 include("core/client/cl_nvg.lua")
 include("core/client/cl_chat.lua")
 
-include("modules/sh_corpse_system.lua")
 --include("modules/sh_flashlight_module.lua")
 include("modules/sh_round_system_module.lua")
 

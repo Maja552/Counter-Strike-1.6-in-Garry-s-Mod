@@ -111,7 +111,7 @@ function SUBGAMEMODE:PlayerDeathThink(ply)
 	--end
 end
 
--- The corpse death sound, better position
+-- The corpse death sound
 function SUBGAMEMODE:DoCorpseDeathSound(ply, corpse)
     if ply:IsZombie() then
         ply:StopLastRandomZSound()
@@ -119,6 +119,11 @@ function SUBGAMEMODE:DoCorpseDeathSound(ply, corpse)
         return true
     end
     return GAMEMODE:DEFAULT_DoCorpseDeathSound(ply, corpse)
+end
+
+-- Make the player corpse
+function SUBGAMEMODE:MakePlayerRagdoll(ply)
+    return GAMEMODE:DEFAULT_MakePlayerRagdoll(ply)
 end
 
 -- The death sound

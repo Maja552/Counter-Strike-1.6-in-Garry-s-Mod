@@ -71,16 +71,12 @@ end
 function GM:DEFAULT_PlayerDamageSounds(ply, hitgroup, dmginfo)
 	local attacker = dmginfo:GetAttacker()
 	if IsValid(attacker) and attacker:IsPlayer() and SUBGAMEMODE:PlayerShouldTakeDamage(ply, attacker) == false then return true end
-    local sound_ent = ply
-    --if IsValid(ply.corpse) then
-    --    sound_ent = ply.corpse
-    --end
     
     if hitgroup == HITGROUP_HEAD then
 		if ply:GetNWBool("HasHelmet", false) then
-			sound_ent:EmitSound("cstrike/player/bhit_helmet-1.wav")
+			ply:EmitSound("cstrike/player/bhit_helmet-1.wav")
 		else
-			sound_ent:EmitSound("cstrike/player/headshot"..math.random(1,3)..".wav")
+			ply:EmitSound("cstrike/player/headshot"..math.random(1,3)..".wav")
 		end
 	end
 end

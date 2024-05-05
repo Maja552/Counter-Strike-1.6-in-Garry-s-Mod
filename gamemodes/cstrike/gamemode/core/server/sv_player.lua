@@ -131,21 +131,10 @@ function GM:PlayerStripLoadout(ply)
 end
 
 function GM:PlayerLoadout(ply)
-	ply:Give("weapon_cs16_knife")
-	if ply:Team() == TEAM_T then
-		ply:Give("weapon_cs16_glock18")
-		ply:GiveAmmo(40, "CS16_9MM", false)
-
-	elseif ply:Team() == TEAM_CT then
-		ply:Give("weapon_cs16_usp")
-		ply:GiveAmmo(24, "CS16_45ACP", false)
-	end
-
-	return true
+	return SUBGAMEMODE:PlayerLoadout(ply)
 end
 
 include("sv_spawnpoints.lua")
-
 
 function HandlePlayerSpeeds()
 	if !GM_INITIALIZED then return end

@@ -21,4 +21,4 @@ function SUBGAMEMODE:CL_ScalePlayerDamage(ply, hitgroup, dmginfo)
     return GAMEMODE:DEFAULT_CL_ScalePlayerDamage(ply, hitgroup, dmginfo)
 end
 
-print("Gamemode loaded gamemodes/hide_and_seek/cl_init.lua")
+print("Gamemode loaded gamemodes/paintball/cl_init.lua")

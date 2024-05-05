@@ -38,7 +38,7 @@ SWEP.Primary.Sound			= Sound("OldPB.Shot1")
 SWEP.Primary.EmptySound		= Sound("OldPistol.DryFire")
 SWEP.Primary.ClipSize		= CS16_USP_MAX_CLIP
 SWEP.Primary.DefaultClip	= CS16_USP_MAX_CLIP
-SWEP.Primary.Ammo			= "CS16_45ACP"
+SWEP.Primary.Ammo			= "CS16_PBAMMO"
 
 SWEP.Secondary.Sound		= Sound("OldPB.Shot1")
 
@@ -166,7 +166,7 @@ function SWEP:USPFire(flSpread, flCycleTime)
 	attachment = self.Owner:HasShield() and 1 or attachment
 	self.Owner:SetAnimation(PLAYER_ATTACK1)
 
-	self.Owner:FireBullets3(self, self.Owner:GetShootPos(), self.Owner:EyeAngles() + self.Owner:CS16_GetViewPunch(), flSpread, CS16_USP_DISTANCE, CS16_USP_PENETRATION, "CS16_45ACP", self:GetSilenced() and CS16_USP_DAMAGE_SIL or CS16_USP_DAMAGE, CS16_USP_RANGE_MODIFER, self.Owner, true, self.Owner:EntIndex())
+	self.Owner:FireBullets3(self, self.Owner:GetShootPos(), self.Owner:EyeAngles() + self.Owner:CS16_GetViewPunch(), flSpread, CS16_USP_DISTANCE, CS16_USP_PENETRATION, "CS16_PBAMMO", self:GetSilenced() and CS16_USP_DAMAGE_SIL or CS16_USP_DAMAGE, CS16_USP_RANGE_MODIFER, self.Owner, true, self.Owner:EntIndex())
 
 	local sound = self:GetSilenced() and self.Secondary.Sound or self.Primary.Sound
 	self:EmitSound(sound)

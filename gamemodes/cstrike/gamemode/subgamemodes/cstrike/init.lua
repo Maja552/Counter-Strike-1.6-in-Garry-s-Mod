@@ -113,9 +113,14 @@ function SUBGAMEMODE:PlayerDeathThink(ply)
     GAMEMODE:DEFAULT_PlayerDeathThink(ply)
 end
 
--- The corpse death sound, better position
+-- The corpse death sound
 function SUBGAMEMODE:DoCorpseDeathSound(ply, corpse)
     return GAMEMODE:DEFAULT_DoCorpseDeathSound(ply, corpse)
+end
+
+-- Make the player corpse
+function SUBGAMEMODE:MakePlayerRagdoll(ply)
+    return GAMEMODE:DEFAULT_MakePlayerRagdoll(ply)
 end
 
 -- The death sound
@@ -133,6 +138,16 @@ function SUBGAMEMODE:PlayerSpawn(ply)
     return GAMEMODE:DEFAULT_PlayerSpawn(ply)
 end
 
+-- Player set human (basically spawns and resets the player)
+function SUBGAMEMODE:PlayerSetHuman(ply)
+    return GAMEMODE:DEFAULT_PlayerSetHuman(ply)
+end
+
+-- Player loadout
+function SUBGAMEMODE:PlayerLoadout(ply)
+    return GAMEMODE:DEFAULT_PlayerLoadout(ply)
+end
+
 -- Player wants to join a team
 function SUBGAMEMODE:TeamChange(ply, team_id)
     return GAMEMODE:DEFAULT_TeamChange(ply, team_id)
@@ -146,6 +161,11 @@ end
 -- Player wants to drop current weapon
 function SUBGAMEMODE:DropCurrentWeapon(ply)
     return GAMEMODE:DEFAULT_DropCurrentWeapon(ply)
+end
+
+-- Player loadout
+function SUBGAMEMODE:PlayerLoadout(ply)
+    return GAMEMODE:DEFAULT_PlayerLoadout(ply)
 end
 
 print("Gamemode loaded gamemodes/cstrike/init.lua")

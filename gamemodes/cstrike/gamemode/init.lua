@@ -36,7 +36,6 @@ AddCSLuaFile("core/client/cl_menu_buy.lua")
 AddCSLuaFile("core/client/cl_nvg.lua")
 AddCSLuaFile("core/client/cl_chat.lua")
 
-AddCSLuaFile("modules/sh_corpse_system.lua")
 --AddCSLuaFile("modules/sh_flashlight_module.lua")
 AddCSLuaFile("modules/sh_round_system_module.lua")
 -- should be the last gamemode file sent to the client
@@ -59,7 +58,6 @@ include("core/server/sv_menu_buy.lua")
 include("core/server/sv_spectator.lua")
 include("core/server/sv_killfeed.lua")
 
-include("modules/sh_corpse_system.lua")
 --include("modules/sh_flashlight_module.lua")
 include("modules/sh_round_system_module.lua")
 

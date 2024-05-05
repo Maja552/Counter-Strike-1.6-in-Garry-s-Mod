@@ -29,38 +29,7 @@ function meta_player:CloakTil(duration)
 end
 
 function meta_player:SetHuman()
-	local ply = self
-	ply:SetNWBool("CanBuy", false)
-	ply.BuyZone = nil
-	ply.InBuyZone = 0
-
-	ply:SetNWBool("CanPlantBomb", false)
-	ply.BombZone = nil
-	ply.InBombZone = 0
-	ply.ArmingC4 = 0
-
-	ply.frozen_for = 0
-	ply.frozen = false
-	ply.speed_limit_enabled = true
-
-	hook.Call("PlayerSetSpeeds", GAMEMODE, ply)
-
-	ply:ResetHull()
-	--ply:SetHull(Vector(-16, -16, 0), Vector(16, 16, 72))
-	--ply:SetHullDuck(Vector(-16, -16, 0), Vector(16, 16, 36))
-	ply:SetMaterial("")
-	ply:SetColor(Color(255,255,255,255))
-    ply:SetBloodColor(BLOOD_COLOR_RED)
-	ply:SetNoDraw(false)
-	ply:SetNoCollideWithTeammates(false)
-	ply:SetNWBool("HasHelmet", false)
-	
-	--if ply:Team() == TEAM_SPECTATOR or ply:Team() == TEAM_UNASSIGNED or !ply:Alive() then
-		ply:UnSpectate()
-	--end
-
-	ply:SetHealth(100)
-    ply:SetMaxHealth(100)
+	return SUBGAMEMODE:PlayerSetHuman(self)
 end
 
 function meta_player:AfterSetHuman()
