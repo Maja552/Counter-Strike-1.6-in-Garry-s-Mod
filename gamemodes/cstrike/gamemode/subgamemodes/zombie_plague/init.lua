@@ -9,7 +9,7 @@ AddCSLuaFile("shared.lua")
 include("shared.lua")
 include("sv_tick.lua")
 include("sv_player_ext.lua")
-
+include("sh_player_ext.lua")
 
 function SUBGAMEMODE:CanPlayerSuicide(ply)
     return GAMEMODE:DEFAULT_CanPlayerSuicide(ply)
@@ -94,11 +94,11 @@ function SUBGAMEMODE:Post_Preparing()
     for k,v in pairs(all_plys) do
         v:SetTeam(v:CS16Team())
 
-        local team_assign_func = GAMEMODE.CONFIG.ASSIGN_TEAMS[v:Team()]
+        local team_assign_func = SUBGAMEMODE.CONFIG.ASSIGN_TEAMS[v:Team()]
         if team_assign_func then
             team_assign_func(v)
         end
-        if v.changed_team or #v:GetWeapons() == 0 then
+        if v.changed_team or #v:GetWeapons() == 0 or v:HasZombieClaws() then
             hook.Call("PlayerStripLoadout", GAMEMODE, v)
             hook.Call("PlayerLoadout", GAMEMODE, v)
         end
@@ -126,7 +126,7 @@ util.AddNetworkString("cs16_zm_roundstart")
 function SUBGAMEMODE:Post_RoundStart()
     local all_plys = player.GetAll()
     local first_zombie = table.Random(all_plys)
-    first_zombie = Entity(1)
+    --first_zombie = Entity(1)
     table.RemoveByValue(all_plys, first_zombie)
 
     --CS16_ZM_ROUNDTYPES
