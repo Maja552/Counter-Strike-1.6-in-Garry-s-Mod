@@ -41,7 +41,7 @@ function GM:CalcView(ply, pos, ang, fov)
 	}
 
     
-    view.fov = CS16_FOV
+    --view.fov = CS16_FOV
     if !ply:IsSpectator() and ply:Alive() then
         if !ply:ShouldDrawLocalPlayer() then
             local bob_int = ply:CalcBob()
